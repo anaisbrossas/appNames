@@ -60,7 +60,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-mongoose.connect('mongodb://localhost/names');
+mongoose.connect('mongodb://workco:workco@ds011399.mlab.com:11399/appnames');
 
 
 module.exports = app;
