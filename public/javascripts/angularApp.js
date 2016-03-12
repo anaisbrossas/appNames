@@ -52,17 +52,36 @@ app.controller('MainCtrl', [
 		$scope.addPost = function(){
             $scope.errorMessage = null;
             
+            // Checks if the name is well formed and returns an error message
+            if(isBadInputName()){
+                return;
+            }
+
+            //Adds the new name 
+            posts.create({
+                name: $scope.name,
+            });
+            $scope.name = '';
+        };
+        
+        //Deletes the name chosen
+        $scope.delete = function(post) {
+          posts.delete(post);
+        };
+        
+        //Checks if the name is valid, already exists, has the right size
+        function isBadInputName(){
             //Checks if name entered is valid
             if($scope.addNameForm.name.$invalid 
                || $scope.addNameForm.name.$error.pattern || !$scope.name || $scope.name === ''){
                 $scope.errorMessage = "Enter a valid name";
-                return;
+                return true;
             }
             
             //Checks maximum size of name
             if($scope.name.length>40){
                 $scope.errorMessage = "Enter a smaller name (less than 40 caracters)";
-                return;
+                return true;
             }
             
             //Checks if name entered already exists
@@ -76,18 +95,8 @@ app.controller('MainCtrl', [
                 }
             });
             if($scope.errorMessage != null){
-                return;
+                return true;
             }
-
-            //Add the new name 
-            posts.create({
-                name: $scope.name,
-            });
-            $scope.name = '';
-        };
-        
-        //Deletes the name chosen
-        $scope.delete = function(post) {
-          posts.delete(post);
+            return false;
         };
   }]);
