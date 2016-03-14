@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('workCo', ['ui.router']).config([
+var app = angular.module('appNames', ['ui.router']).config([
   '$stateProvider',
   '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
