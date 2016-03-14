@@ -1,33 +1,38 @@
 # appNames
 This project is a single web page app which allows to add and delete names from a list.
 
-Technology used : 
+Technology used :
 - MongoDb
 - Express
 - AngularJS
 - NodeJS
 
-# Getting Started
+Also known as [MEAN Stack](http://mean.io/)
 
-To get you started you can simply clone the appNames repository and install the dependencies:
+## Getting Started
 
-# Prerequisites
+To get you started you need to clone this repo and install its dependencies.
 
-You need git to clone the appNames repository. You can get git from http://git-scm.com/.
+You need to install [node.js](http://nodejs.org) and its package manager (npm).
+If you are on Mac and use [Homebrew](http://brew.sh/), just do `brew install node`.
 
-You must have node.js and its package manager (npm) installed. You can get them from http://nodejs.org/.
+### Clone and run
 
-# Clone and run appNames
+Clone the appNames repository using `git`:
 
-Clone the appNames repository using git:
+```
+$ git clone https://github.com/anaisbrossas/appNames.git
+$ cd appNames
+```
 
-git clone https://github.com/anaisbrossas/appNames.git
-cd appNames
+Install the node modules declared in `package.json`
+```
+$ npm install
+```
 
-npm is preconfigured to automatically run bower so you can simply do:
-npm install
+Start the local webserver
+```
+$ npm start
+```
 
-The simplest way to start this app is:
-npm start
-
-Now browse to the app at http://localhost:3000/#/home.html
+You can now browse to the app at [http://localhost:3000](http://localhost:3000)
