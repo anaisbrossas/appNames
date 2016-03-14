@@ -5,9 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-require('./ui/public/models/Posts');
+require('./server/models/Posts');
 
-var routes = require('./ui/public/routes/index');
+var routes = require('./server/routes/index');
 
 
 var app = express();
@@ -15,7 +15,7 @@ var app = express();
 
 
 // view engine setup
-app.set('views', path.join(__dirname, './ui/public/views'));
+app.set('views', path.join(__dirname, './public/views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -24,7 +24,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, './ui/public')));
+app.use(express.static(path.join(__dirname, './public')));
 app.use('/', routes);
 
 // catch 404 and forward to error handler
