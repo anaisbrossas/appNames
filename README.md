@@ -36,3 +36,29 @@ $ npm start
 ```
 
 You can now browse to the app at [http://localhost:3000](http://localhost:3000)
+
+## Directory Layout
+
+```
+appNames/                     --> all of the source files for the application
+  app.js                      --> main application module
+  package.json                --> defines dependencies of the app
+  Procfile                    --> declares command executed to start the app
+  public/                     --> all of the public files
+    angularApp.js             --> declares routes
+    directives/               --> all of the ui-view folders
+      indexAppNames/          --> all of the files needed to generate indexAppNames view
+        scripts/              
+          indexAppNames.js    --> View Controller 
+        templates/            
+          indexAppNames.html  --> HTML template (ui-view)
+    styles/                   
+      style.css               --> stylesheet used in views
+    views/                    --> all of the views
+      error.ejs               --> error view
+      index.ejs               --> index view (first one loaded with the app)
+  server/                     --> all of the server files
+      routes/                 
+        index.js              --> all of the DB schemas and calls
+```
+
