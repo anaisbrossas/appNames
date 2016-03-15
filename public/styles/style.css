@@ -6,3 +6,22 @@ body {
 a {
   color: #00B7FF;
 }
+
+.glyphicon-thumbs-up {
+  cursor: pointer;
+}
+
+.name-list{
+  max-height: 450px;
+  overflow: scroll;
+}
+
+.name-list li.well{
+  margin-bottom: 4px;
+}
+
+.add-button{
+  position: absolute;
+  right: 22px;
+  padding-top: 8px;
+}

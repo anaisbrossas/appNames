@@ -1,0 +1,39 @@
+<div class="page-header">
+    <h1>Add Names !</h1>
+</div>
+
+<!-- Displays Errors -->
+<div class="alert alert-danger" role="alert" ng-show="errorMessage != null">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    {{errorMessage}}
+</div>
+<!-- End displays errors--> 
+
+<div class="row">
+    <div class="col-sm-12">
+        <ul class="list-unstyled name-list">
+            <li ng-repeat="post in posts" class="well well-sm">
+                <span>{{post.name}}</span>
+                <a href="#" title="Delete name" class="pull-right btn btn-sm btn-link delete-link" ng-click="delete(post)">
+                    <span class="glyphicon glyphicon-minus-sign"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<form ng-submit="addPost()" name ="addNameForm" class="form-horizontal">
+    <div class="form-group row">
+        <label for="name_field" class="sr-only">Name</label>
+
+        <div class="col-xs-12">
+            <input type="text" id="name_field" class="form-control" placeholder="Name" ng-model="name" name="name" ng-pattern="namePattern">
+        </div>
+
+        <button type="submit" class="btn btn-link add-button"  aria-label="Add">
+            <span class="glyphicon glyphicon-plus-sign"></span>
+        </button>
+
+    </div>
+</form>
