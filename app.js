@@ -5,14 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-require('./server/models/Posts');
-
 var routes = require('./server/routes/index');
-
-
 var app = express();
 
-
+//Sets env.PORT
+app.set('port', (process.env.PORT || 5000));
 
 // view engine setup
 app.set('views', path.join(__dirname, './public/views'));
@@ -33,8 +30,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-// error handlers
 
 // development error handler
 // will print stacktrace
@@ -58,7 +53,12 @@ app.use(function(err, req, res, next) {
   });
 });
 
+//Connection to MongoDB
 mongoose.connect('mongodb://workco:workco@ds011399.mlab.com:11399/appnames');
 
+
+app.listen(app.get('port'), function() {
+    console.log("Server started");
+});
 
 module.exports = app;

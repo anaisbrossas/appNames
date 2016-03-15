@@ -1,7 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var cool = require('cool-ascii-faces');
+
+//Creation of Post Schema (Names)
+var PostSchema = new mongoose.Schema({
+    name: String
+});
+mongoose.model('Post', PostSchema);
 var Post = mongoose.model('Post');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -32,6 +40,10 @@ router.delete('/posts/:post', function(req, res, next) {
         res.json(post);
         console.log('Post ' + req.params.post +' successfully deleted!');
     });
+});
+
+router.get('/cool', function(request, response) {
+  response.send(cool());
 });
 
 module.exports = router;

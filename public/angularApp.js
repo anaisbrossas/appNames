@@ -1,5 +1,6 @@
 'use strict';
 
+// Delare views 
 var app = angular.module('appNames', ['ui.router']).config([
     '$stateProvider',
     '$urlRouterProvider',
@@ -23,6 +24,7 @@ var app = angular.module('appNames', ['ui.router']).config([
     }
 ]);
 
+// Calls the server services (in index.js)
 app.factory('posts', ['$http', function($http){
     var o = {
         posts: []
